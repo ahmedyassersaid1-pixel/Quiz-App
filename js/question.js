@@ -56,6 +56,8 @@ const correctSound = new Audio("../voice/براڤو عليك_[cut_2sec].mp3");
 const wrongSound = new Audio(
   "../voice/ارفدني ابوس ايدك انا فاشل_[cut_1sec].mp3",
 );
+correctSound.preload = "auto";
+wrongSound.preload = "auto";
 export default class Question {
   // TODO: Create constructor(quiz, container, onQuizEnd)
   // 1. Store the three parameters
