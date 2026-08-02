@@ -56,8 +56,7 @@ const correctSound = new Audio("../voice/براڤو عليك_[cut_2sec].mp3");
 const wrongSound = new Audio(
   "../voice/ارفدني ابوس ايدك انا فاشل_[cut_1sec].mp3",
 );
-correctSound.preload = "auto";
-wrongSound.preload = "auto";
+
 export default class Question {
   // TODO: Create constructor(quiz, container, onQuizEnd)
   // 1. Store the three parameters
@@ -304,11 +303,25 @@ export default class Question {
     if (isCorrect) {
       choiceElement.classList.add("correct");
       this.quiz.incrementScore();
-      correctSound.play();
+      correctSound
+        .play()
+        .then(() => {
+          console.log("Correct sound played");
+        })
+        .catch((error) => {
+          console.error("Correct sound failed:", error);
+        });
     } else {
       choiceElement.classList.add("wrong");
       this.highlightCorrectAnswer();
-      wrongSound.play();
+      wrongSound
+        .play()
+        .then(() => {
+          console.log("Wrong sound played");
+        })
+        .catch((error) => {
+          console.error("Wrong sound failed:", error);
+        });
     }
 
     const buttons = this.container.querySelectorAll(".answer-btn");
