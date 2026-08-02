@@ -52,8 +52,8 @@
  *   [array[i], array[j]] = [array[j], array[i]];
  * }
  */
-const correctSound = new Audio("./voice/correct.mp3");
-const wrongSound = new Audio("./voice/wrong.mp3");
+const correctSound = new Audio("/Quiz-App/voice/correct.mp3");
+const wrongSound = new Audio("/Quiz-App/voice/wrong.mp3");
 
 export default class Question {
   // TODO: Create constructor(quiz, container, onQuizEnd)
