@@ -52,10 +52,8 @@
  *   [array[i], array[j]] = [array[j], array[i]];
  * }
  */
-const correctSound = new Audio("../voice/براڤو عليك_[cut_2sec].mp3");
-const wrongSound = new Audio(
-  "../voice/ارفدني ابوس ايدك انا فاشل_[cut_1sec].mp3",
-);
+const correctSound = new Audio("../voice/correct.mp3");
+const wrongSound = new Audio("../voice/wrong.mp3");
 
 export default class Question {
   // TODO: Create constructor(quiz, container, onQuizEnd)
@@ -303,25 +301,11 @@ export default class Question {
     if (isCorrect) {
       choiceElement.classList.add("correct");
       this.quiz.incrementScore();
-      correctSound
-        .play()
-        .then(() => {
-          console.log("Correct sound played");
-        })
-        .catch((error) => {
-          console.error("Correct sound failed:", error);
-        });
+      correctSound.play();
     } else {
       choiceElement.classList.add("wrong");
       this.highlightCorrectAnswer();
-      wrongSound
-        .play()
-        .then(() => {
-          console.log("Wrong sound played");
-        })
-        .catch((error) => {
-          console.error("Wrong sound failed:", error);
-        });
+      wrongSound.play();
     }
 
     const buttons = this.container.querySelectorAll(".answer-btn");
